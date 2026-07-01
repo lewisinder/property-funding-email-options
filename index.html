@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Property Funding Email Options</title>
+  <style>
+    @font-face {
+      font-family: Tajawal-Regular;
+      src: url("https://propertyfunding.co.nz/wp-content/uploads/2018/08/Tajawal-Regular.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: Tajawal-Medium;
+      src: url("https://propertyfunding.co.nz/wp-content/uploads/2018/08/Tajawal-Medium.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: Tajawal-Bold;
+      src: url("https://propertyfunding.co.nz/wp-content/uploads/2018/08/Tajawal-Bold.ttf") format("truetype");
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    :root {
+      --pf-ink: #413631;
+      --pf-muted: #77645b;
+      --pf-copper: #b78d77;
+      --pf-cream: #f7f2ef;
+      --pf-page: #e9e1db;
+      --pf-line: #decfc7;
+      --pf-white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--pf-page);
+      color: var(--pf-ink);
+      font-family: Tajawal-Regular, "Open Sans", Arial, Helvetica, sans-serif;
+    }
+
+    .shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 360px minmax(0, 1fr);
+    }
+
+    .side {
+      background: var(--pf-ink);
+      color: var(--pf-white);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding-bottom: 8px;
+    }
+
+    .brand img {
+      display: block;
+      width: 220px;
+      height: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.92;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Tajawal-Bold, "Open Sans", Arial, Helvetica, sans-serif;
+      font-size: 34px;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+    }
+
+    .intro {
+      margin: 0;
+      color: #e5d7cf;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .option-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .option {
+      width: 100%;
+      border: 1px solid rgba(183, 141, 119, 0.58);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--pf-white);
+      cursor: pointer;
+      padding: 16px;
+      text-align: left;
+      transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+
+    .option:hover,
+    .option.is-active {
+      background: rgba(183, 141, 119, 0.2);
+      border-color: var(--pf-copper);
+      transform: translateY(-1px);
+    }
+
+    .option-name {
+      display: block;
+      font-family: Tajawal-Bold, "Open Sans", Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .option-note {
+      display: block;
+      margin-top: 6px;
+      color: #d8c7bd;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .action {
+      appearance: none;
+      border: 1px solid var(--pf-copper);
+      background: var(--pf-copper);
+      color: var(--pf-white);
+      cursor: pointer;
+      font-family: Tajawal-Bold, "Open Sans", Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.09em;
+      line-height: 1;
+      padding: 13px 12px;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .action.secondary {
+      background: transparent;
+      color: var(--pf-white);
+    }
+
+    .status {
+      min-height: 42px;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      color: #d8c7bd;
+      font-size: 13px;
+      line-height: 1.45;
+      padding-top: 16px;
+    }
+
+    .notes {
+      margin-top: auto;
+      color: #bdaea7;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .main {
+      min-width: 0;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    .topbar {
+      align-items: center;
+      background: var(--pf-white);
+      border-bottom: 1px solid var(--pf-line);
+      display: flex;
+      gap: 16px;
+      justify-content: space-between;
+      min-height: 72px;
+      padding: 16px 22px;
+    }
+
+    .current-title {
+      font-family: Tajawal-Bold, "Open Sans", Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .current-meta {
+      color: var(--pf-muted);
+      font-size: 13px;
+      line-height: 1.35;
+      margin-top: 3px;
+    }
+
+    .viewport-controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .viewport-button {
+      border: 1px solid var(--pf-line);
+      background: var(--pf-cream);
+      color: var(--pf-ink);
+      cursor: pointer;
+      font-family: Tajawal-Medium, "Open Sans", Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      padding: 9px 12px;
+    }
+
+    .viewport-button.is-active {
+      background: var(--pf-ink);
+      border-color: var(--pf-ink);
+      color: var(--pf-white);
+    }
+
+    .preview-wrap {
+      overflow: auto;
+      padding: 24px;
+    }
+
+    .frame-shell {
+      margin: 0 auto;
+      max-width: 100%;
+      transition: width 180ms ease;
+    }
+
+    .frame-shell.desktop {
+      width: 760px;
+    }
+
+    .frame-shell.mobile {
+      width: 390px;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      min-height: 82vh;
+      border: 0;
+      background: var(--pf-page);
+      box-shadow: 0 18px 45px rgba(65, 54, 49, 0.16);
+    }
+
+    @media (max-width: 920px) {
+      .shell {
+        grid-template-columns: 1fr;
+      }
+
+      .side {
+        padding: 22px;
+      }
+
+      .actions {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .viewport-controls {
+        justify-content: flex-start;
+      }
+
+      .preview-wrap {
+        padding: 14px;
+      }
+
+      .frame-shell.mobile,
+      .frame-shell.desktop {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="side">
+      <div class="brand">
+        <img src="https://propertyfunding.co.nz/wp-content/uploads/2018/10/PF_Logo_Default-01.svg" alt="Property Funding">
+      </div>
+
+      <h1>Email option builder</h1>
+      <p class="intro">Preview and copy the Property Funding PIE email options from one place.</p>
+
+      <div class="option-list" id="optionList"></div>
+
+      <div class="actions">
+        <button class="action" type="button" id="copyBody">Copy email body</button>
+        <button class="action secondary" type="button" id="copySource">Copy source</button>
+        <a class="action secondary" id="openOption" href="options/clean.html" target="_blank" rel="noopener">Open option</a>
+        <a class="action secondary" id="downloadOption" href="options/clean.html" download>Download</a>
+      </div>
+
+      <div class="status" id="status">Choose an option, then copy the rendered body or source HTML.</div>
+
+      <div class="notes">
+        For hosted use, publish this folder with GitHub Pages. The visual option uses a local diagram asset that will resolve correctly when hosted from the same project.
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <div class="current-title" id="currentTitle">Clean Investor Email</div>
+          <div class="current-meta" id="currentMeta">Lean, text-first version for direct email use.</div>
+        </div>
+        <div class="viewport-controls">
+          <button class="viewport-button is-active" type="button" data-viewport="desktop">Desktop</button>
+          <button class="viewport-button" type="button" data-viewport="mobile">Mobile</button>
+        </div>
+      </header>
+
+      <section class="preview-wrap">
+        <div class="frame-shell desktop" id="frameShell">
+          <iframe id="previewFrame" src="options/clean.html" title="Email option preview"></iframe>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const options = [
+      {
+        id: 'clean',
+        name: 'Clean Investor Email',
+        note: 'Lean, text-first version for direct email use.',
+        path: 'options/clean.html'
+      },
+      {
+        id: 'visual',
+        name: 'Visual Investor Brief',
+        note: 'More visual version with the fund structure graphic.',
+        path: 'options/visual.html'
+      }
+    ];
+
+    let activeOption = options[0];
+
+    const optionList = document.getElementById('optionList');
+    const previewFrame = document.getElementById('previewFrame');
+    const frameShell = document.getElementById('frameShell');
+    const currentTitle = document.getElementById('currentTitle');
+    const currentMeta = document.getElementById('currentMeta');
+    const openOption = document.getElementById('openOption');
+    const downloadOption = document.getElementById('downloadOption');
+    const status = document.getElementById('status');
+
+    function renderOptions() {
+      optionList.innerHTML = '';
+      options.forEach((option) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `option${option.id === activeOption.id ? ' is-active' : ''}`;
+        button.innerHTML = `<span class="option-name">${option.name}</span><span class="option-note">${option.note}</span>`;
+        button.addEventListener('click', () => setActiveOption(option));
+        optionList.appendChild(button);
+      });
+    }
+
+    function setActiveOption(option) {
+      activeOption = option;
+      previewFrame.src = option.path;
+      currentTitle.textContent = option.name;
+      currentMeta.textContent = option.note;
+      openOption.href = option.path;
+      downloadOption.href = option.path;
+      status.textContent = `${option.name} selected.`;
+      renderOptions();
+    }
+
+    function htmlToPlainText(html) {
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      return doc.body ? doc.body.innerText.trim() : '';
+    }
+
+    function absolutiseTemplate(html, path) {
+      const url = new URL(path, window.location.href);
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      doc.querySelectorAll('[src]').forEach((node) => {
+        node.setAttribute('src', new URL(node.getAttribute('src'), url).href);
+      });
+      doc.querySelectorAll('[href]').forEach((node) => {
+        const href = node.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+          node.setAttribute('href', new URL(href, url).href);
+        }
+      });
+      return '<!doctype html>\n' + doc.documentElement.outerHTML;
+    }
+
+    async function getTemplateHtml() {
+      const response = await fetch(activeOption.path);
+      const rawHtml = await response.text();
+      return absolutiseTemplate(rawHtml, activeOption.path);
+    }
+
+    async function copyBody() {
+      try {
+        const html = await getTemplateHtml();
+        const plain = htmlToPlainText(html);
+
+        if (navigator.clipboard && window.ClipboardItem) {
+          await navigator.clipboard.write([
+            new ClipboardItem({
+              'text/html': new Blob([html], { type: 'text/html' }),
+              'text/plain': new Blob([plain], { type: 'text/plain' })
+            })
+          ]);
+          status.textContent = `Copied rendered body for ${activeOption.name}. Paste into the email compose body.`;
+          return;
+        }
+
+        const frameDocument = previewFrame.contentDocument || previewFrame.contentWindow.document;
+        const range = frameDocument.createRange();
+        range.selectNodeContents(frameDocument.body);
+        const selection = frameDocument.defaultView.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        frameDocument.execCommand('copy');
+        selection.removeAllRanges();
+        status.textContent = `Copied rendered body for ${activeOption.name}. Paste into the email compose body.`;
+      } catch (error) {
+        status.textContent = 'Could not copy the rendered body. Open the option and select/copy the email manually.';
+      }
+    }
+
+    async function copySource() {
+      try {
+        const html = await getTemplateHtml();
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(html);
+        } else {
+          const area = document.createElement('textarea');
+          area.value = html;
+          area.style.position = 'fixed';
+          area.style.left = '-9999px';
+          document.body.appendChild(area);
+          area.focus();
+          area.select();
+          document.execCommand('copy');
+          area.remove();
+        }
+        status.textContent = `Copied source HTML for ${activeOption.name}. Paste into a custom HTML/code editor.`;
+      } catch (error) {
+        status.textContent = 'Could not copy source HTML.';
+      }
+    }
+
+    document.getElementById('copyBody').addEventListener('click', copyBody);
+    document.getElementById('copySource').addEventListener('click', copySource);
+
+    document.querySelectorAll('[data-viewport]').forEach((button) => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('[data-viewport]').forEach((item) => item.classList.remove('is-active'));
+        button.classList.add('is-active');
+        frameShell.className = `frame-shell ${button.dataset.viewport}`;
+      });
+    });
+
+    renderOptions();
+  </script>
+</body>
+</html>
