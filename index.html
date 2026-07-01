@@ -342,6 +342,7 @@
     function absolutiseTemplate(html, path) {
       const url = new URL(path, window.location.href);
       const doc = new DOMParser().parseFromString(html, 'text/html');
+      doc.querySelectorAll('[data-site-nav]').forEach((node) => node.remove());
       doc.querySelectorAll('[src]').forEach((node) => {
         node.setAttribute('src', new URL(node.getAttribute('src'), url).href);
       });
