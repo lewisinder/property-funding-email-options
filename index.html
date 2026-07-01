@@ -47,343 +47,292 @@
       font-family: Tajawal-Regular, "Open Sans", Arial, Helvetica, sans-serif;
     }
 
-    .shell {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 360px minmax(0, 1fr);
-    }
-
-    .side {
+    .hero {
       background: var(--pf-ink);
       color: var(--pf-white);
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+      padding: 34px 28px 48px;
+    }
+
+    .hero-inner,
+    .content {
+      margin: 0 auto;
+      max-width: 1180px;
     }
 
     .brand {
-      display: flex;
       align-items: center;
-      gap: 18px;
-      padding-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      gap: 22px;
+      margin-bottom: 54px;
     }
 
     .brand img {
       display: block;
-      width: 220px;
-      height: auto;
       filter: brightness(0) invert(1);
+      height: auto;
       opacity: 0.92;
+      width: 250px;
+    }
+
+    .brand-note {
+      color: #d6b5a2;
+      font-family: Tajawal-Medium, "Open Sans", Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      line-height: 1.4;
+      text-align: right;
+      text-transform: uppercase;
     }
 
     h1 {
-      margin: 0;
       font-family: Tajawal-Bold, "Open Sans", Arial, Helvetica, sans-serif;
-      font-size: 34px;
-      line-height: 1.02;
-      letter-spacing: -0.01em;
+      font-size: clamp(44px, 8vw, 92px);
+      letter-spacing: -0.035em;
+      line-height: 0.92;
+      margin: 0;
+      max-width: 920px;
     }
 
     .intro {
-      margin: 0;
-      color: #e5d7cf;
-      font-size: 16px;
+      color: #eadcd4;
+      font-size: 19px;
       line-height: 1.55;
+      margin: 24px 0 0;
+      max-width: 690px;
     }
 
-    .option-list {
+    .content {
+      padding: 34px 28px 56px;
+    }
+
+    .status {
+      background: var(--pf-white);
+      border-left: 4px solid var(--pf-copper);
+      color: var(--pf-muted);
+      font-size: 15px;
+      line-height: 1.45;
+      margin-bottom: 24px;
+      padding: 16px 18px;
+    }
+
+    .grid {
       display: grid;
-      gap: 12px;
+      gap: 24px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .option {
-      width: 100%;
-      border: 1px solid rgba(183, 141, 119, 0.58);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--pf-white);
-      cursor: pointer;
-      padding: 16px;
-      text-align: left;
-      transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    .card {
+      background: var(--pf-white);
+      border: 1px solid var(--pf-line);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
     }
 
-    .option:hover,
-    .option.is-active {
-      background: rgba(183, 141, 119, 0.2);
-      border-color: var(--pf-copper);
-      transform: translateY(-1px);
-    }
-
-    .option-name {
+    .card-preview {
+      background: var(--pf-cream);
+      border-bottom: 1px solid var(--pf-line);
       display: block;
+      min-height: 220px;
+      overflow: hidden;
+      padding: 22px;
+      text-decoration: none;
+    }
+
+    .preview-frame {
+      background: var(--pf-white);
+      box-shadow: 0 18px 42px rgba(65, 54, 49, 0.14);
+      height: 310px;
+      overflow: hidden;
+      transform-origin: top left;
+    }
+
+    .preview-frame iframe {
+      border: 0;
+      display: block;
+      height: 720px;
+      pointer-events: none;
+      transform: scale(0.46);
+      transform-origin: top left;
+      width: 1480px;
+    }
+
+    .card-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 24px;
+    }
+
+    .label {
+      color: var(--pf-copper);
+      font-family: Tajawal-Medium, "Open Sans", Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    h2 {
       font-family: Tajawal-Bold, "Open Sans", Arial, Helvetica, sans-serif;
-      font-size: 18px;
-      line-height: 1.2;
+      font-size: 30px;
+      line-height: 1.05;
+      margin: 0;
     }
 
-    .option-note {
-      display: block;
-      margin-top: 6px;
-      color: #d8c7bd;
-      font-size: 13px;
-      line-height: 1.35;
+    .description {
+      color: var(--pf-muted);
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 14px 0 24px;
     }
 
     .actions {
       display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: auto;
     }
 
-    .action {
+    .button {
+      align-items: center;
       appearance: none;
-      border: 1px solid var(--pf-copper);
       background: var(--pf-copper);
+      border: 1px solid var(--pf-copper);
       color: var(--pf-white);
       cursor: pointer;
+      display: inline-flex;
       font-family: Tajawal-Bold, "Open Sans", Arial, Helvetica, sans-serif;
       font-size: 12px;
+      justify-content: center;
       letter-spacing: 0.09em;
-      line-height: 1;
-      padding: 13px 12px;
+      line-height: 1.1;
+      min-height: 44px;
+      padding: 12px 14px;
       text-align: center;
       text-decoration: none;
       text-transform: uppercase;
     }
 
-    .action.secondary {
+    .button.secondary {
       background: transparent;
-      color: var(--pf-white);
-    }
-
-    .status {
-      min-height: 42px;
-      border-top: 1px solid rgba(255, 255, 255, 0.16);
-      color: #d8c7bd;
-      font-size: 13px;
-      line-height: 1.45;
-      padding-top: 16px;
+      color: var(--pf-ink);
     }
 
     .notes {
-      margin-top: auto;
-      color: #bdaea7;
-      font-size: 12px;
-      line-height: 1.45;
-    }
-
-    .main {
-      min-width: 0;
-      display: grid;
-      grid-template-rows: auto minmax(0, 1fr);
-    }
-
-    .topbar {
-      align-items: center;
-      background: var(--pf-white);
-      border-bottom: 1px solid var(--pf-line);
-      display: flex;
-      gap: 16px;
-      justify-content: space-between;
-      min-height: 72px;
-      padding: 16px 22px;
-    }
-
-    .current-title {
-      font-family: Tajawal-Bold, "Open Sans", Arial, Helvetica, sans-serif;
-      font-size: 20px;
-      line-height: 1.2;
-    }
-
-    .current-meta {
       color: var(--pf-muted);
       font-size: 13px;
-      line-height: 1.35;
-      margin-top: 3px;
+      line-height: 1.45;
+      margin-top: 28px;
+      max-width: 760px;
     }
 
-    .viewport-controls {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .viewport-button {
-      border: 1px solid var(--pf-line);
-      background: var(--pf-cream);
-      color: var(--pf-ink);
-      cursor: pointer;
-      font-family: Tajawal-Medium, "Open Sans", Arial, Helvetica, sans-serif;
-      font-size: 13px;
-      padding: 9px 12px;
-    }
-
-    .viewport-button.is-active {
-      background: var(--pf-ink);
-      border-color: var(--pf-ink);
-      color: var(--pf-white);
-    }
-
-    .preview-wrap {
-      overflow: auto;
-      padding: 24px;
-    }
-
-    .frame-shell {
-      margin: 0 auto;
-      max-width: 100%;
-      transition: width 180ms ease;
-    }
-
-    .frame-shell.desktop {
-      width: 760px;
-    }
-
-    .frame-shell.mobile {
-      width: 390px;
-    }
-
-    iframe {
-      display: block;
-      width: 100%;
-      min-height: 82vh;
-      border: 0;
-      background: var(--pf-page);
-      box-shadow: 0 18px 45px rgba(65, 54, 49, 0.16);
-    }
-
-    @media (max-width: 920px) {
-      .shell {
+    @media (max-width: 900px) {
+      .grid {
         grid-template-columns: 1fr;
       }
+    }
 
-      .side {
-        padding: 22px;
+    @media (max-width: 640px) {
+      .hero {
+        padding: 24px 20px 38px;
+      }
+
+      .brand {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 40px;
+      }
+
+      .brand-note {
+        text-align: left;
+      }
+
+      .content {
+        padding: 24px 20px 42px;
       }
 
       .actions {
         grid-template-columns: 1fr;
       }
-    }
 
-    @media (max-width: 620px) {
-      .topbar {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .viewport-controls {
-        justify-content: flex-start;
-      }
-
-      .preview-wrap {
+      .card-preview {
         padding: 14px;
       }
 
-      .frame-shell.mobile,
-      .frame-shell.desktop {
-        width: 100%;
+      .preview-frame {
+        height: 240px;
+      }
+
+      .preview-frame iframe {
+        transform: scale(0.38);
       }
     }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <aside class="side">
+  <header class="hero">
+    <div class="hero-inner">
       <div class="brand">
         <img src="https://propertyfunding.co.nz/wp-content/uploads/2018/10/PF_Logo_Default-01.svg" alt="Property Funding">
+        <div class="brand-note">PIE email options</div>
       </div>
 
-      <h1>Email option builder</h1>
-      <p class="intro">Preview and copy the Property Funding PIE email options from one place.</p>
+      <h1>Property Funding email builder.</h1>
+      <p class="intro">Choose an email option below. Each option opens as its own HTML document under the options folder, ready to preview, copy, download or host.</p>
+    </div>
+  </header>
 
-      <div class="option-list" id="optionList"></div>
+  <main class="content">
+    <div class="status" id="status">Open an option to view the actual email page, or use the copy buttons from this index.</div>
 
-      <div class="actions">
-        <button class="action" type="button" id="copyBody">Copy email body</button>
-        <button class="action secondary" type="button" id="copySource">Copy source</button>
-        <a class="action secondary" id="openOption" href="options/clean.html" target="_blank" rel="noopener">Open option</a>
-        <a class="action secondary" id="downloadOption" href="options/clean.html" download>Download</a>
-      </div>
-
-      <div class="status" id="status">Choose an option, then copy the rendered body or source HTML.</div>
-
-      <div class="notes">
-        For hosted use, publish this folder with GitHub Pages. The visual option uses a local diagram asset that will resolve correctly when hosted from the same project.
-      </div>
-    </aside>
-
-    <main class="main">
-      <header class="topbar">
-        <div>
-          <div class="current-title" id="currentTitle">Clean Investor Email</div>
-          <div class="current-meta" id="currentMeta">Lean, text-first version for direct email use.</div>
+    <section class="grid" aria-label="Email options">
+      <article class="card">
+        <a class="card-preview" href="options/clean.html" target="_blank" rel="noopener" aria-label="Open clean investor email">
+          <div class="preview-frame">
+            <iframe src="options/clean.html" title="Clean investor email preview"></iframe>
+          </div>
+        </a>
+        <div class="card-body">
+          <div class="label">Option 01</div>
+          <h2>Clean Investor Email</h2>
+          <p class="description">A lean, text-first email designed for direct investor communication and easier compatibility across email clients.</p>
+          <div class="actions">
+            <a class="button" href="options/clean.html" target="_blank" rel="noopener">Open page</a>
+            <button class="button secondary" type="button" data-copy-body="options/clean.html">Copy body</button>
+            <button class="button secondary" type="button" data-copy-source="options/clean.html">Copy source</button>
+            <a class="button secondary" href="options/clean.html" download>Download</a>
+          </div>
         </div>
-        <div class="viewport-controls">
-          <button class="viewport-button is-active" type="button" data-viewport="desktop">Desktop</button>
-          <button class="viewport-button" type="button" data-viewport="mobile">Mobile</button>
-        </div>
-      </header>
+      </article>
 
-      <section class="preview-wrap">
-        <div class="frame-shell desktop" id="frameShell">
-          <iframe id="previewFrame" src="options/clean.html" title="Email option preview"></iframe>
+      <article class="card">
+        <a class="card-preview" href="options/visual.html" target="_blank" rel="noopener" aria-label="Open visual investor brief">
+          <div class="preview-frame">
+            <iframe src="options/visual.html" title="Visual investor brief preview"></iframe>
+          </div>
+        </a>
+        <div class="card-body">
+          <div class="label">Option 02</div>
+          <h2>Visual Investor Brief</h2>
+          <p class="description">A more visual version with the fund structure diagram, stronger proof points and a campaign-style investor briefing layout.</p>
+          <div class="actions">
+            <a class="button" href="options/visual.html" target="_blank" rel="noopener">Open page</a>
+            <button class="button secondary" type="button" data-copy-body="options/visual.html">Copy body</button>
+            <button class="button secondary" type="button" data-copy-source="options/visual.html">Copy source</button>
+            <a class="button secondary" href="options/visual.html" download>Download</a>
+          </div>
         </div>
-      </section>
-    </main>
-  </div>
+      </article>
+    </section>
+
+    <p class="notes">For GitHub Pages, host this project from the repository root. Before sending emails, replace staging links with final live URLs and test the output in the target email platform.</p>
+  </main>
 
   <script>
-    const options = [
-      {
-        id: 'clean',
-        name: 'Clean Investor Email',
-        note: 'Lean, text-first version for direct email use.',
-        path: 'options/clean.html'
-      },
-      {
-        id: 'visual',
-        name: 'Visual Investor Brief',
-        note: 'More visual version with the fund structure graphic.',
-        path: 'options/visual.html'
-      }
-    ];
-
-    let activeOption = options[0];
-
-    const optionList = document.getElementById('optionList');
-    const previewFrame = document.getElementById('previewFrame');
-    const frameShell = document.getElementById('frameShell');
-    const currentTitle = document.getElementById('currentTitle');
-    const currentMeta = document.getElementById('currentMeta');
-    const openOption = document.getElementById('openOption');
-    const downloadOption = document.getElementById('downloadOption');
     const status = document.getElementById('status');
-
-    function renderOptions() {
-      optionList.innerHTML = '';
-      options.forEach((option) => {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = `option${option.id === activeOption.id ? ' is-active' : ''}`;
-        button.innerHTML = `<span class="option-name">${option.name}</span><span class="option-note">${option.note}</span>`;
-        button.addEventListener('click', () => setActiveOption(option));
-        optionList.appendChild(button);
-      });
-    }
-
-    function setActiveOption(option) {
-      activeOption = option;
-      previewFrame.src = option.path;
-      currentTitle.textContent = option.name;
-      currentMeta.textContent = option.note;
-      openOption.href = option.path;
-      downloadOption.href = option.path;
-      status.textContent = `${option.name} selected.`;
-      renderOptions();
-    }
 
     function htmlToPlainText(html) {
       const doc = new DOMParser().parseFromString(html, 'text/html');
@@ -405,15 +354,15 @@
       return '<!doctype html>\n' + doc.documentElement.outerHTML;
     }
 
-    async function getTemplateHtml() {
-      const response = await fetch(activeOption.path);
+    async function getTemplateHtml(path) {
+      const response = await fetch(path);
       const rawHtml = await response.text();
-      return absolutiseTemplate(rawHtml, activeOption.path);
+      return absolutiseTemplate(rawHtml, path);
     }
 
-    async function copyBody() {
+    async function copyBody(path) {
       try {
-        const html = await getTemplateHtml();
+        const html = await getTemplateHtml(path);
         const plain = htmlToPlainText(html);
 
         if (navigator.clipboard && window.ClipboardItem) {
@@ -423,27 +372,28 @@
               'text/plain': new Blob([plain], { type: 'text/plain' })
             })
           ]);
-          status.textContent = `Copied rendered body for ${activeOption.name}. Paste into the email compose body.`;
+          status.textContent = `Copied rendered body from ${path}. Paste into the email compose body.`;
           return;
         }
 
-        const frameDocument = previewFrame.contentDocument || previewFrame.contentWindow.document;
-        const range = frameDocument.createRange();
-        range.selectNodeContents(frameDocument.body);
-        const selection = frameDocument.defaultView.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-        frameDocument.execCommand('copy');
-        selection.removeAllRanges();
-        status.textContent = `Copied rendered body for ${activeOption.name}. Paste into the email compose body.`;
+        const area = document.createElement('textarea');
+        area.value = plain;
+        area.style.position = 'fixed';
+        area.style.left = '-9999px';
+        document.body.appendChild(area);
+        area.focus();
+        area.select();
+        document.execCommand('copy');
+        area.remove();
+        status.textContent = `Copied plain-text fallback from ${path}. For rich formatting, open the email page and select/copy the rendered email.`;
       } catch (error) {
-        status.textContent = 'Could not copy the rendered body. Open the option and select/copy the email manually.';
+        status.textContent = 'Could not copy the rendered email body.';
       }
     }
 
-    async function copySource() {
+    async function copySource(path) {
       try {
-        const html = await getTemplateHtml();
+        const html = await getTemplateHtml(path);
         if (navigator.clipboard && window.isSecureContext) {
           await navigator.clipboard.writeText(html);
         } else {
@@ -457,24 +407,19 @@
           document.execCommand('copy');
           area.remove();
         }
-        status.textContent = `Copied source HTML for ${activeOption.name}. Paste into a custom HTML/code editor.`;
+        status.textContent = `Copied source HTML from ${path}. Paste into a custom HTML/code editor.`;
       } catch (error) {
         status.textContent = 'Could not copy source HTML.';
       }
     }
 
-    document.getElementById('copyBody').addEventListener('click', copyBody);
-    document.getElementById('copySource').addEventListener('click', copySource);
-
-    document.querySelectorAll('[data-viewport]').forEach((button) => {
-      button.addEventListener('click', () => {
-        document.querySelectorAll('[data-viewport]').forEach((item) => item.classList.remove('is-active'));
-        button.classList.add('is-active');
-        frameShell.className = `frame-shell ${button.dataset.viewport}`;
-      });
+    document.querySelectorAll('[data-copy-body]').forEach((button) => {
+      button.addEventListener('click', () => copyBody(button.dataset.copyBody));
     });
 
-    renderOptions();
+    document.querySelectorAll('[data-copy-source]').forEach((button) => {
+      button.addEventListener('click', () => copySource(button.dataset.copySource));
+    });
   </script>
 </body>
 </html>

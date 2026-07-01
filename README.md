@@ -4,7 +4,7 @@ Static GitHub Pages-ready project for previewing and copying Property Funding PI
 
 ## Structure
 
-- `index.html` - option switcher, previewer, and copy tool.
+- `index.html` - option hub with links to each standalone email page plus copy/download controls.
 - `options/clean.html` - clean investor email.
 - `options/visual.html` - more visual investor brief.
 - `assets/` - shared images used by options.
@@ -13,7 +13,7 @@ Static GitHub Pages-ready project for previewing and copying Property Funding PI
 
 Open `index.html` in a browser.
 
-- Use `Desktop` and `Mobile` to preview sizing.
+- Use `Open page` to open the actual standalone email HTML document.
 - Use `Copy email body` to paste the designed email into a normal email compose body.
 - Use `Copy source` to paste into a custom HTML/code editor.
 
