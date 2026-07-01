@@ -1,21 +1,23 @@
 # Property Funding Email Options
 
-Static GitHub Pages-ready project for previewing and copying Property Funding PIE email options.
+Static GitHub Pages-ready project for building and hosting Property Funding email template options.
 
 ## Structure
 
-- `index.html` - option hub with links to each standalone email page plus copy/download controls.
-- `options/clean.html` - clean investor email.
-- `options/visual.html` - more visual investor brief.
-- `assets/` - shared images used by options.
+- `index.html` - current landing page and future builder shell.
+- `options/` - future standalone email template pages.
+- `assets/` - shared images used by future options.
 
 ## Local Use
 
-Open `index.html` in a browser.
+Open `index.html` in a browser. No active templates are currently published.
 
-- Use `Open page` to open the actual standalone email HTML document.
-- Use `Copy email body` to paste the designed email into a normal email compose body.
-- Use `Copy source` to paste into a custom HTML/code editor.
+Future direction:
+
+- Add new standalone templates under `options/`.
+- Add a recipient name field for generated/personalised openings.
+- Add template-type choices such as trust, individual, and business.
+- Add copy/export controls once templates are ready.
 
 ## GitHub Pages
 
@@ -30,6 +32,6 @@ Recommended Pages settings:
 ## Before Sending
 
 - Replace staging URLs with final live URLs.
-- Check links in both email options.
+- Check links in each email option.
 - Send a test email to Gmail, Outlook, and Apple Mail.
 - Confirm all financial/risk wording with Property Funding.
