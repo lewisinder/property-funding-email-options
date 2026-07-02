@@ -14,7 +14,7 @@ Open `index.html` in a browser.
 
 Current active templates:
 
-- Investment Enquiry Follow-up
+- 01 Universal
 
 Future direction:
 
