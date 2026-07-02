@@ -4,9 +4,8 @@ Static GitHub Pages-ready project for building and hosting Property Funding emai
 
 ## Structure
 
-- `index.html` - current landing page and future builder shell.
+- `index.html` - client-facing landing page and future builder hub.
 - `options/investment-enquiry.html` - website-based thank-you follow-up email for investment enquiries.
-- `options/investment-enquiry-personal.html` - personal follow-up version for Miles with a warmer opening and icon-led visual flow.
 - `assets/` - shared images used by future options.
 
 ## Local Use
@@ -16,13 +15,12 @@ Open `index.html` in a browser.
 Current active templates:
 
 - Investment Enquiry Follow-up
-- Personal Investment Enquiry Follow-up
 
 Future direction:
 
-- Add a recipient name field for generated/personalised openings.
-- Add template-type choices such as trust, individual, and business.
-- Add copy/export controls once templates are ready.
+- Add builder flows for different investor types such as individual, trust and company.
+- Add builder flows for form-specific and document-specific follow-ups.
+- Keep preview, copy body, copy source and download controls for each active template.
 
 ## GitHub Pages
 
