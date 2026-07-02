@@ -5,8 +5,9 @@ Static GitHub Pages-ready project for building and hosting Property Funding emai
 ## Structure
 
 - `index.html` - client-facing landing page and future builder hub.
-- `options/investment-enquiry.html` - website-based thank-you follow-up email for investment enquiries.
-- `assets/` - shared images used by future options.
+- `options/investment-enquiry.html` - 01 Universal (New Design) thank-you follow-up email for investment enquiries.
+- `options/01-universal-website-design.html` - 01 Universal (Website Design), rebuilt to mirror the current Invest page design.
+- `assets/` - shared images. `website-*` files are the Website Design option's imagery: section photos and diagrams reused from the site, plus photo banners (hero, governance, footer CTA, landscape) cropped from the Invest page screenshot with the headline text baked in.
 
 ## Local Use
 
@@ -14,7 +15,14 @@ Open `index.html` in a browser.
 
 Current active templates:
 
-- 01 Universal
+- 01 Universal (New Design)
+- 01 Universal (Website Design)
+
+Website Design notes:
+
+- Investment terms icons are placeholders (reused `icon-*.png` files) until final icons are supplied.
+- The governance and footer CTA banners have their buttons baked into the image; the whole banner links to the invest/contact page.
+- Footer Privacy Policy, Complaints and LinkedIn links are `#` placeholders until the final URLs are confirmed.
 
 Future direction:
 
