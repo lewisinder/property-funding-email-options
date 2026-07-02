@@ -25,14 +25,22 @@
       font-style: normal;
     }
     @media screen and (max-width: 620px) {
-      .pf-container { width: 100% !important; }
+      .pf-container { width: calc(100vw - 24px) !important; max-width: calc(100vw - 24px) !important; min-width: 0 !important; table-layout: fixed !important; }
+      .pf-container table { max-width: 100% !important; }
       .pf-pad { padding-left: 22px !important; padding-right: 22px !important; }
       .pf-stack { display: block !important; width: 100% !important; }
       .pf-stack-pad { padding-left: 0 !important; padding-right: 0 !important; padding-top: 16px !important; }
-      .pf-hero-title { font-size: 34px !important; line-height: 37px !important; }
+      .pf-logo { width: 210px !important; }
+      .pf-mobile-hide { display: none !important; width: 0 !important; overflow: hidden !important; }
+      .pf-hero-title { font-size: 30px !important; line-height: 34px !important; overflow-wrap: break-word !important; word-break: normal !important; }
       .pf-section-title { font-size: 26px !important; line-height: 31px !important; }
       .pf-button { display: block !important; text-align: center !important; }
       .pf-term { display: block !important; width: 100% !important; padding-bottom: 16px !important; }
+      .pf-flow-step { display: block !important; width: 100% !important; padding: 0 0 14px 0 !important; }
+      .pf-card-cell { display: block !important; width: 100% !important; padding: 0 0 14px 0 !important; }
+      .pf-card-cell-last { padding-bottom: 0 !important; }
+      .pf-doc-cell { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; }
+      .pf-risk-cell { padding-left: 1px !important; padding-right: 1px !important; }
       .site-nav-inner { align-items: flex-start !important; flex-direction: column !important; }
       .site-nav-links { width: 100% !important; }
       .site-nav-link { flex: 1 !important; text-align: center !important; }
@@ -57,7 +65,7 @@
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#eee8e3;">
       <tr>
         <td align="center" style="padding:28px 12px;">
-          <table role="presentation" class="pf-container" width="700" cellspacing="0" cellpadding="0" border="0" style="width:700px; max-width:700px; border-collapse:collapse;">
+          <table role="presentation" class="pf-container" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%; max-width:700px; border-collapse:collapse;">
             <tr>
               <td style="background:#ffffff;">
                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
@@ -66,9 +74,9 @@
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
                         <tr>
                           <td align="left" style="vertical-align:middle;">
-                            <img src="https://propertyfunding.co.nz/wp-content/uploads/2018/10/PF_Logo_Default-01.svg" width="250" alt="Property Funding" style="display:block; width:250px; max-width:100%; height:auto; border:0;">
+                            <img class="pf-logo" src="https://propertyfunding.co.nz/wp-content/uploads/2018/10/PF_Logo_Default-01.svg" width="250" alt="Property Funding" style="display:block; width:250px; max-width:100%; height:auto; border:0;">
                           </td>
-                          <td align="right" style="vertical-align:middle; font-family:Tajawal-Medium, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:16px; color:#806a5f; text-transform:uppercase; letter-spacing:1.5px;">
+                          <td class="pf-mobile-hide" align="right" style="vertical-align:middle; font-family:Tajawal-Medium, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:16px; color:#806a5f; text-transform:uppercase; letter-spacing:1.5px;">
                             Investment enquiry
                           </td>
                         </tr>
@@ -101,7 +109,47 @@
                           <td style="padding:24px;">
                             <div class="pf-section-title" style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:28px; line-height:33px; color:#413631; padding-bottom:12px;">How a PIE works</div>
                             <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#5c4c45; padding-bottom:14px;">The Property Funding Mortgage Trust is a Managed Investment Scheme structured as a Portfolio Investment Entity (PIE) in New Zealand.</div>
-                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#5c4c45;">The investment objective of the Fund is to provide investors with an income stream which is higher than bank deposits and which is competitive with returns offered by other Managed Investment Schemes investing in first mortgage loans.</div>
+                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#5c4c45; padding-bottom:22px;">The investment objective of the Fund is to provide investors with an income stream which is higher than bank deposits and which is competitive with returns offered by other Managed Investment Schemes investing in first mortgage loans.</div>
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+                              <tr>
+                                <td class="pf-flow-step" width="25%" style="vertical-align:top; padding-right:7px;">
+                                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff; border:1px solid #e4d7d0;">
+                                    <tr><td style="padding:14px 12px;">
+                                      <div style="width:34px; height:34px; background:#b78d77; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:34px; text-align:center;">01</div>
+                                      <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:18px; color:#413631; padding-top:12px; padding-bottom:6px;">Invest</div>
+                                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; color:#5c4c45;">Your funds are pooled with other investors.</div>
+                                    </td></tr>
+                                  </table>
+                                </td>
+                                <td class="pf-flow-step" width="25%" style="vertical-align:top; padding-left:5px; padding-right:5px;">
+                                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff; border:1px solid #e4d7d0;">
+                                    <tr><td style="padding:14px 12px;">
+                                      <div style="width:34px; height:34px; background:#b78d77; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:34px; text-align:center;">02</div>
+                                      <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:18px; color:#413631; padding-top:12px; padding-bottom:6px;">Units</div>
+                                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; color:#5c4c45;">You will be issued Units in the Fund.</div>
+                                    </td></tr>
+                                  </table>
+                                </td>
+                                <td class="pf-flow-step" width="25%" style="vertical-align:top; padding-left:5px; padding-right:5px;">
+                                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff; border:1px solid #e4d7d0;">
+                                    <tr><td style="padding:14px 12px;">
+                                      <div style="width:34px; height:34px; background:#b78d77; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:34px; text-align:center;">03</div>
+                                      <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:18px; color:#413631; padding-top:12px; padding-bottom:6px;">First mortgages</div>
+                                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; color:#5c4c45;">We invest in loans secured by first mortgages.</div>
+                                    </td></tr>
+                                  </table>
+                                </td>
+                                <td class="pf-flow-step" width="25%" style="vertical-align:top; padding-left:7px;">
+                                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff; border:1px solid #e4d7d0;">
+                                    <tr><td style="padding:14px 12px;">
+                                      <div style="width:34px; height:34px; background:#b78d77; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:34px; text-align:center;">04</div>
+                                      <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:18px; color:#413631; padding-top:12px; padding-bottom:6px;">Distributions</div>
+                                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:13px; line-height:20px; color:#5c4c45;">The net income is distributed to investors monthly.</div>
+                                    </td></tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
                           </td>
                         </tr>
                       </table>
@@ -112,17 +160,43 @@
                     <td class="pf-pad" style="padding:0 42px 34px 42px; background:#ffffff;">
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
                         <tr>
-                          <td class="pf-stack" width="50%" style="vertical-align:top; padding-right:12px;">
-                            <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:17px; line-height:22px; color:#413631; padding-bottom:7px;">PIE</div>
-                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#5c4c45; padding-bottom:18px;">Portfolio Investment Entity, a New Zealand tax structure for certain managed funds.</div>
-                            <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:17px; line-height:22px; color:#413631; padding-bottom:7px;">First Mortgage</div>
-                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#5c4c45;">A registered first-ranking mortgage secured over property.</div>
+                          <td class="pf-card-cell" width="50%" style="vertical-align:top; padding-right:8px; padding-bottom:14px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; border:1px solid #e4d7d0;">
+                              <tr><td style="padding:18px;">
+                                <div style="display:inline-block; min-width:48px; background:#413631; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:24px; text-align:center; letter-spacing:1px;">PIE</div>
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:17px; line-height:22px; color:#413631; padding-top:12px; padding-bottom:7px;">PIE</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#5c4c45;">Portfolio Investment Entity, a New Zealand tax structure for certain managed funds.</div>
+                              </td></tr>
+                            </table>
                           </td>
-                          <td class="pf-stack pf-stack-pad" width="50%" style="vertical-align:top; padding-left:12px;">
-                            <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:17px; line-height:22px; color:#413631; padding-bottom:7px;">Units</div>
-                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#5c4c45; padding-bottom:18px;">An investor's interest in the Fund, issued when an investment is accepted.</div>
-                            <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:17px; line-height:22px; color:#413631; padding-bottom:7px;">PIR</div>
-                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#5c4c45;">Prescribed Investor Rate, used to calculate PIE tax on an investor's behalf.</div>
+                          <td class="pf-card-cell" width="50%" style="vertical-align:top; padding-left:8px; padding-bottom:14px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; border:1px solid #e4d7d0;">
+                              <tr><td style="padding:18px;">
+                                <div style="display:inline-block; min-width:48px; background:#413631; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:24px; text-align:center; letter-spacing:1px;">1ST</div>
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:17px; line-height:22px; color:#413631; padding-top:12px; padding-bottom:7px;">First Mortgage</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#5c4c45;">A registered first-ranking mortgage secured over property.</div>
+                              </td></tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="pf-card-cell" width="50%" style="vertical-align:top; padding-right:8px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; border:1px solid #e4d7d0;">
+                              <tr><td style="padding:18px;">
+                                <div style="display:inline-block; min-width:48px; background:#413631; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:24px; text-align:center; letter-spacing:1px;">UNIT</div>
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:17px; line-height:22px; color:#413631; padding-top:12px; padding-bottom:7px;">Units</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#5c4c45;">An investor's interest in the Fund, issued when an investment is accepted.</div>
+                              </td></tr>
+                            </table>
+                          </td>
+                          <td class="pf-card-cell pf-card-cell-last" width="50%" style="vertical-align:top; padding-left:8px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; border:1px solid #e4d7d0;">
+                              <tr><td style="padding:18px;">
+                                <div style="display:inline-block; min-width:48px; background:#413631; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:24px; text-align:center; letter-spacing:1px;">PIR</div>
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:17px; line-height:22px; color:#413631; padding-top:12px; padding-bottom:7px;">PIR</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#5c4c45;">Prescribed Investor Rate, used to calculate PIE tax on an investor's behalf.</div>
+                              </td></tr>
+                            </table>
                           </td>
                         </tr>
                       </table>
@@ -132,8 +206,26 @@
                   <tr>
                     <td class="pf-pad" style="padding:32px 42px; background:#f7f2ef;">
                       <div class="pf-section-title" style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:30px; line-height:35px; color:#413631; padding-bottom:18px;">What's needed to apply</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#5c4c45; padding-bottom:11px;">&raquo; Complete the application form (individuals, companies, or trusts)</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#5c4c45;">&raquo; We'll also need you to provide: your IRD number and PIR tax rate along with suitable identification such as passport or drivers license. There may be additional Anti-Money Laundering (AML) requirements depending on the investor entity type.</div>
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+                        <tr>
+                          <td class="pf-card-cell" width="50%" style="vertical-align:top; padding-right:10px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff; border-left:4px solid #b78d77;">
+                              <tr><td style="padding:20px;">
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:13px; line-height:18px; color:#b78d77; text-transform:uppercase; letter-spacing:1.5px; padding-bottom:9px;">Application form</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#5c4c45;">Complete the application form (individuals, companies, or trusts)</div>
+                              </td></tr>
+                            </table>
+                          </td>
+                          <td class="pf-card-cell pf-card-cell-last" width="50%" style="vertical-align:top; padding-left:10px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff; border-left:4px solid #b78d77;">
+                              <tr><td style="padding:20px;">
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:13px; line-height:18px; color:#b78d77; text-transform:uppercase; letter-spacing:1.5px; padding-bottom:9px;">ID, IRD and PIR</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#5c4c45;">We'll also need you to provide: your IRD number and PIR tax rate along with suitable identification such as passport or drivers license. There may be additional Anti-Money Laundering (AML) requirements depending on the investor entity type.</div>
+                              </td></tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
                     </td>
                   </tr>
 
@@ -183,31 +275,72 @@
                       <div style="font-family:Tajawal-Medium, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#b78d77; text-transform:uppercase; letter-spacing:1.7px; padding-bottom:14px;">Investment terms</div>
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
                         <tr>
-                          <td class="pf-term" width="33%" style="vertical-align:top; padding-right:12px;">
-                            <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:18px; line-height:23px; color:#413631;">Minimum investment</div>
-                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#5c4c45;">$50,000 increments</div>
+                          <td class="pf-term" width="33%" style="vertical-align:top; padding-right:10px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff;">
+                              <tr><td style="padding:18px; border-top:3px solid #b78d77;">
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:24px; line-height:28px; color:#413631; padding-bottom:7px;">$50k</div>
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:21px; color:#413631;">Minimum investment</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:22px; color:#5c4c45;">$50,000 increments</div>
+                              </td></tr>
+                            </table>
                           </td>
-                          <td class="pf-term" width="33%" style="vertical-align:top; padding-left:8px; padding-right:8px;">
-                            <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:18px; line-height:23px; color:#413631;">Distributions</div>
-                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#5c4c45;">Interest paid monthly</div>
+                          <td class="pf-term" width="33%" style="vertical-align:top; padding-left:5px; padding-right:5px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff;">
+                              <tr><td style="padding:18px; border-top:3px solid #b78d77;">
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:24px; line-height:28px; color:#413631; padding-bottom:7px;">Monthly</div>
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:21px; color:#413631;">Distributions</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:22px; color:#5c4c45;">Interest paid monthly</div>
+                              </td></tr>
+                            </table>
                           </td>
-                          <td class="pf-term" width="33%" style="vertical-align:top; padding-left:12px;">
-                            <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:18px; line-height:23px; color:#413631;">Asset mix</div>
-                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#5c4c45;">Residential 0-75%, Commercial 0-25%, Rural 0-65%, Cash/TDs 5-25%. Minimum 5% liquidity</div>
+                          <td class="pf-term" width="33%" style="vertical-align:top; padding-left:10px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff;">
+                              <tr><td style="padding:18px; border-top:3px solid #b78d77;">
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:24px; line-height:28px; color:#413631; padding-bottom:7px;">5-25%</div>
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:21px; color:#413631;">Asset mix</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:22px; color:#5c4c45;">Residential 0-75%, Commercial 0-25%, Rural 0-65%, Cash/TDs 5-25%. Minimum 5% liquidity</div>
+                              </td></tr>
+                            </table>
                           </td>
                         </tr>
                         <tr>
-                          <td class="pf-term" width="33%" style="vertical-align:top; padding-top:20px; padding-right:12px;">
-                            <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:18px; line-height:23px; color:#413631;">Unit price</div>
-                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#5c4c45;">Calculated quarterly; generally expected to remain at $1.00 unless significant losses exceed reserves</div>
+                          <td class="pf-term" width="33%" style="vertical-align:top; padding-top:14px; padding-right:10px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff;">
+                              <tr><td style="padding:18px; border-top:3px solid #b78d77;">
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:24px; line-height:28px; color:#413631; padding-bottom:7px;">$1.00</div>
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:21px; color:#413631;">Unit price</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:22px; color:#5c4c45;">Calculated quarterly; generally expected to remain at $1.00 unless significant losses exceed reserves</div>
+                              </td></tr>
+                            </table>
                           </td>
-                          <td class="pf-term" width="33%" style="vertical-align:top; padding-top:20px; padding-left:8px; padding-right:8px;">
-                            <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:18px; line-height:23px; color:#413631;">Managers fee of 2.45%</div>
-                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#5c4c45;">No contribution, withdrawal or establishment fees for investors</div>
+                          <td class="pf-term" width="33%" style="vertical-align:top; padding-top:14px; padding-left:5px; padding-right:5px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff;">
+                              <tr><td style="padding:18px; border-top:3px solid #b78d77;">
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:24px; line-height:28px; color:#413631; padding-bottom:7px;">2.45%</div>
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:21px; color:#413631;">Managers fee of 2.45%</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:22px; color:#5c4c45;">No contribution, withdrawal or establishment fees for investors</div>
+                              </td></tr>
+                            </table>
                           </td>
-                          <td class="pf-term" width="33%" style="vertical-align:top; padding-top:20px; padding-left:12px;">
-                            <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:18px; line-height:23px; color:#413631;">Risk indicator</div>
-                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#5c4c45;">2 (lower risk) not risk free</div>
+                          <td class="pf-term" width="33%" style="vertical-align:top; padding-top:14px; padding-left:10px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff;">
+                              <tr><td style="padding:18px; border-top:3px solid #b78d77;">
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:24px; line-height:28px; color:#413631; padding-bottom:7px;">2</div>
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:21px; color:#413631;">Risk indicator</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:22px; color:#5c4c45; padding-bottom:10px;">2 (lower risk) not risk free</div>
+                                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+                                  <tr>
+                                    <td class="pf-risk-cell" width="14.28%" style="padding-right:2px;"><div style="height:7px; background:#d7c6bd;"></div></td>
+                                    <td class="pf-risk-cell" width="14.28%" style="padding-right:2px;"><div style="height:7px; background:#b78d77;"></div></td>
+                                    <td class="pf-risk-cell" width="14.28%" style="padding-right:2px;"><div style="height:7px; background:#d7c6bd;"></div></td>
+                                    <td class="pf-risk-cell" width="14.28%" style="padding-right:2px;"><div style="height:7px; background:#d7c6bd;"></div></td>
+                                    <td class="pf-risk-cell" width="14.28%" style="padding-right:2px;"><div style="height:7px; background:#d7c6bd;"></div></td>
+                                    <td class="pf-risk-cell" width="14.28%" style="padding-right:2px;"><div style="height:7px; background:#d7c6bd;"></div></td>
+                                    <td class="pf-risk-cell" width="14.28%"><div style="height:7px; background:#d7c6bd;"></div></td>
+                                  </tr>
+                                </table>
+                              </td></tr>
+                            </table>
                           </td>
                         </tr>
                       </table>
@@ -217,14 +350,44 @@
                   <tr>
                     <td class="pf-pad" style="padding:36px 42px; background:#ffffff;">
                       <div class="pf-section-title" style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:30px; line-height:35px; color:#413631; padding-bottom:14px;">Withdrawals</div>
-                      <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631;">Minimum investment period:</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#5c4c45; padding-bottom:12px;">3 months from initial investment.</div>
-                      <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631;">Process:</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#5c4c45; padding-bottom:12px;">Withdrawals are requested via form or online and processed at the end of each quarter (March, June, September, December), with payments on the 10th of the following month. Minimum withdrawal $50,000.</div>
-                      <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631;">Deferrals/suspension:</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#5c4c45; padding-bottom:12px;">The Manager may suspend or defer withdrawals in specified circumstances (e.g., large withdrawal requests; or adverse economic/political conditions)</div>
-                      <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631;">Transfers:</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#5c4c45;">You may request to transfer units to a spouse, relative, or family trust (subject to the usual approval process).</div>
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+                        <tr>
+                          <td width="58" style="vertical-align:top; padding-bottom:16px;">
+                            <div style="width:42px; height:42px; background:#413631; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:42px; text-align:center;">3M</div>
+                          </td>
+                          <td style="vertical-align:top; padding-bottom:16px; border-bottom:1px solid #e9ddd7;">
+                            <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631;">Minimum investment period:</div>
+                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#5c4c45;">3 months from initial investment.</div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width="58" style="vertical-align:top; padding-top:16px; padding-bottom:16px;">
+                            <div style="width:42px; height:42px; background:#b78d77; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:42px; text-align:center;">FORM</div>
+                          </td>
+                          <td style="vertical-align:top; padding-top:16px; padding-bottom:16px; border-bottom:1px solid #e9ddd7;">
+                            <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631;">Process:</div>
+                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#5c4c45;">Withdrawals are requested via form or online and processed at the end of each quarter (March, June, September, December), with payments on the 10th of the following month. Minimum withdrawal $50,000.</div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width="58" style="vertical-align:top; padding-top:16px; padding-bottom:16px;">
+                            <div style="width:42px; height:42px; background:#413631; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:42px; text-align:center;">HOLD</div>
+                          </td>
+                          <td style="vertical-align:top; padding-top:16px; padding-bottom:16px; border-bottom:1px solid #e9ddd7;">
+                            <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631;">Deferrals/suspension:</div>
+                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#5c4c45;">The Manager may suspend or defer withdrawals in specified circumstances (e.g., large withdrawal requests; or adverse economic/political conditions)</div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width="58" style="vertical-align:top; padding-top:16px;">
+                            <div style="width:42px; height:42px; background:#b78d77; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:42px; text-align:center;">MOVE</div>
+                          </td>
+                          <td style="vertical-align:top; padding-top:16px;">
+                            <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631;">Transfers:</div>
+                            <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#5c4c45;">You may request to transfer units to a spouse, relative, or family trust (subject to the usual approval process).</div>
+                          </td>
+                        </tr>
+                      </table>
                     </td>
                   </tr>
 
@@ -232,16 +395,59 @@
                     <td class="pf-pad" style="padding:34px 42px; background:#f7f2ef;">
                       <div class="pf-section-title" style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:30px; line-height:35px; color:#413631; padding-bottom:12px;">Governance and controls</div>
                       <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:17px; line-height:28px; color:#5c4c45; padding-bottom:20px;">At Property Funding we are serious about looking after your funds. We have security measures and processes in place that are designed to protect your investment and give you peace of mind</div>
-                      <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631;">We are licenced, supervised and regulated</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:24px; color:#5c4c45; padding-bottom:12px;">To uphold our licence to operate, there are many strict compliance requirements we must meet which are designed to protect investors and their investment.</div>
-                      <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631;">Verified bank accounts for withdrawals</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:24px; color:#5c4c45; padding-bottom:12px;">Withdrawals of funds will only be transferred into a verified bank account in your name.</div>
-                      <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631;">Supervisor approval - an extra level of protection</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:24px; color:#5c4c45; padding-bottom:12px;">All bank transactions must be verified and authorised by the supervisor.</div>
-                      <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631;">Your investment held in a trust</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:24px; color:#5c4c45; padding-bottom:12px;">The Fund's assets are held in a separate trust with an independent custodian. All movements in and out are authorised by the supervisor.</div>
-                      <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631;">We're just a phone call away</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:24px; color:#5c4c45;">We are a small team and easy to get hold of.</div>
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+                        <tr>
+                          <td class="pf-card-cell" width="50%" style="vertical-align:top; padding-right:8px; padding-bottom:14px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff;">
+                              <tr><td style="padding:19px;">
+                                <div style="display:inline-block; min-width:48px; background:#b78d77; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:24px; text-align:center; letter-spacing:1px;">LIC</div>
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631; padding-top:12px;">We are licenced, supervised and regulated</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:24px; color:#5c4c45; padding-top:7px;">To uphold our licence to operate, there are many strict compliance requirements we must meet which are designed to protect investors and their investment.</div>
+                              </td></tr>
+                            </table>
+                          </td>
+                          <td class="pf-card-cell" width="50%" style="vertical-align:top; padding-left:8px; padding-bottom:14px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff;">
+                              <tr><td style="padding:19px;">
+                                <div style="display:inline-block; min-width:48px; background:#b78d77; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:24px; text-align:center; letter-spacing:1px;">BANK</div>
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631; padding-top:12px;">Verified bank accounts for withdrawals</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:24px; color:#5c4c45; padding-top:7px;">Withdrawals of funds will only be transferred into a verified bank account in your name.</div>
+                              </td></tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="pf-card-cell" width="50%" style="vertical-align:top; padding-right:8px; padding-bottom:14px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff;">
+                              <tr><td style="padding:19px;">
+                                <div style="display:inline-block; min-width:48px; background:#413631; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:24px; text-align:center; letter-spacing:1px;">PT</div>
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631; padding-top:12px;">Supervisor approval - an extra level of protection</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:24px; color:#5c4c45; padding-top:7px;">All bank transactions must be verified and authorised by the supervisor.</div>
+                              </td></tr>
+                            </table>
+                          </td>
+                          <td class="pf-card-cell" width="50%" style="vertical-align:top; padding-left:8px; padding-bottom:14px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#ffffff;">
+                              <tr><td style="padding:19px;">
+                                <div style="display:inline-block; min-width:48px; background:#413631; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:24px; text-align:center; letter-spacing:1px;">TRUST</div>
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:23px; color:#413631; padding-top:12px;">Your investment held in a trust</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:24px; color:#5c4c45; padding-top:7px;">The Fund's assets are held in a separate trust with an independent custodian. All movements in and out are authorised by the supervisor.</div>
+                              </td></tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="pf-card-cell pf-card-cell-last" colspan="2" style="vertical-align:top;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; background:#413631;">
+                              <tr><td style="padding:20px;">
+                                <div style="display:inline-block; min-width:48px; background:#b78d77; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:24px; text-align:center; letter-spacing:1px;">CALL</div>
+                                <div style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:17px; line-height:23px; color:#ffffff; padding-top:12px;">We're just a phone call away</div>
+                                <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:24px; color:#f1e7e0; padding-top:7px;">We are a small team and easy to get hold of.</div>
+                              </td></tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
                     </td>
                   </tr>
 
@@ -250,14 +456,26 @@
                       <div class="pf-section-title" style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:30px; line-height:35px; color:#413631; padding-bottom:18px;">Investment documents and application forms</div>
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
                         <tr>
-                          <td class="pf-stack" width="33%" style="vertical-align:top; padding-right:8px;">
-                            <a href="#" style="display:block; border:1px solid #decfc7; color:#413631; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:20px; padding:18px; text-decoration:none;">Product Disclosure Document</a>
+                          <td class="pf-doc-cell" width="33%" style="vertical-align:top; padding-right:8px;">
+                            <a href="#" style="display:block; border:1px solid #decfc7; border-top:4px solid #b78d77; color:#413631; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:20px; padding:18px; text-decoration:none;">
+                              <span style="display:block; width:50px; background:#413631; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:24px; text-align:center; letter-spacing:1px; margin-bottom:13px;">PDS</span>
+                              Product Disclosure Document
+                              <span style="display:block; font-family:Tajawal-Medium, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#b78d77; text-transform:uppercase; letter-spacing:1px; padding-top:12px;">View document</span>
+                            </a>
                           </td>
-                          <td class="pf-stack pf-stack-pad" width="33%" style="vertical-align:top; padding-left:8px; padding-right:8px;">
-                            <a href="#" style="display:block; border:1px solid #decfc7; color:#413631; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:20px; padding:18px; text-decoration:none;">Statement of Investment Policy and Objectives (SIPO)</a>
+                          <td class="pf-doc-cell" width="33%" style="vertical-align:top; padding-left:8px; padding-right:8px;">
+                            <a href="#" style="display:block; border:1px solid #decfc7; border-top:4px solid #b78d77; color:#413631; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:20px; padding:18px; text-decoration:none;">
+                              <span style="display:block; width:50px; background:#413631; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:24px; text-align:center; letter-spacing:1px; margin-bottom:13px;">SIPO</span>
+                              Statement of Investment Policy and Objectives (SIPO)
+                              <span style="display:block; font-family:Tajawal-Medium, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#b78d77; text-transform:uppercase; letter-spacing:1px; padding-top:12px;">View document</span>
+                            </a>
                           </td>
-                          <td class="pf-stack pf-stack-pad" width="33%" style="vertical-align:top; padding-left:8px;">
-                            <a href="#" style="display:block; border:1px solid #decfc7; color:#413631; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:20px; padding:18px; text-decoration:none;">Application Forms</a>
+                          <td class="pf-doc-cell" width="33%" style="vertical-align:top; padding-left:8px;">
+                            <a href="#" style="display:block; border:1px solid #decfc7; border-top:4px solid #b78d77; color:#413631; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:20px; padding:18px; text-decoration:none;">
+                              <span style="display:block; width:50px; background:#413631; color:#ffffff; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:24px; text-align:center; letter-spacing:1px; margin-bottom:13px;">FORM</span>
+                              Application Forms
+                              <span style="display:block; font-family:Tajawal-Medium, 'Open Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#b78d77; text-transform:uppercase; letter-spacing:1px; padding-top:12px;">View document</span>
+                            </a>
                           </td>
                         </tr>
                       </table>
@@ -268,16 +486,18 @@
                   <tr>
                     <td class="pf-pad" style="padding:34px 42px; background:#f7f2ef;">
                       <div class="pf-section-title" style="font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:30px; line-height:35px; color:#413631; padding-bottom:18px;">Frequently asked questions</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">What are the fees?</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">What is the Fund's objective?</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">Is there a reserve fund?</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">Is there a minimum investment amount?</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">How do I increase my investment?</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">How do I get a tax certificate?</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">How do I make a complaint?</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">What are the Risks?</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">How does the biometrics facial recognition technology work?</div>
-                      <div style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">Why must we provide information about our Source of Funds?</div>
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+                        <tr><td style="padding:12px 0; border-top:1px solid #e0d2ca;"><span style="display:inline-block; width:28px; color:#b78d77; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;">Q</span><span style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">What are the fees?</span></td></tr>
+                        <tr><td style="padding:12px 0; border-top:1px solid #e0d2ca;"><span style="display:inline-block; width:28px; color:#b78d77; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;">Q</span><span style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">What is the Fund's objective?</span></td></tr>
+                        <tr><td style="padding:12px 0; border-top:1px solid #e0d2ca;"><span style="display:inline-block; width:28px; color:#b78d77; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;">Q</span><span style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">Is there a reserve fund?</span></td></tr>
+                        <tr><td style="padding:12px 0; border-top:1px solid #e0d2ca;"><span style="display:inline-block; width:28px; color:#b78d77; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;">Q</span><span style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">Is there a minimum investment amount?</span></td></tr>
+                        <tr><td style="padding:12px 0; border-top:1px solid #e0d2ca;"><span style="display:inline-block; width:28px; color:#b78d77; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;">Q</span><span style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">How do I increase my investment?</span></td></tr>
+                        <tr><td style="padding:12px 0; border-top:1px solid #e0d2ca;"><span style="display:inline-block; width:28px; color:#b78d77; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;">Q</span><span style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">How do I get a tax certificate?</span></td></tr>
+                        <tr><td style="padding:12px 0; border-top:1px solid #e0d2ca;"><span style="display:inline-block; width:28px; color:#b78d77; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;">Q</span><span style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">How do I make a complaint?</span></td></tr>
+                        <tr><td style="padding:12px 0; border-top:1px solid #e0d2ca;"><span style="display:inline-block; width:28px; color:#b78d77; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;">Q</span><span style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">What are the Risks?</span></td></tr>
+                        <tr><td style="padding:12px 0; border-top:1px solid #e0d2ca;"><span style="display:inline-block; width:28px; color:#b78d77; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;">Q</span><span style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">How does the biometrics facial recognition technology work?</span></td></tr>
+                        <tr><td style="padding:12px 0; border-top:1px solid #e0d2ca; border-bottom:1px solid #e0d2ca;"><span style="display:inline-block; width:28px; color:#b78d77; font-family:Tajawal-Bold, 'Open Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;">Q</span><span style="font-family:Tajawal-Regular, 'Open Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:25px; color:#5c4c45;">Why must we provide information about our Source of Funds?</span></td></tr>
+                      </table>
                     </td>
                   </tr>
 
