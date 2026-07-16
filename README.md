@@ -4,7 +4,7 @@ Static GitHub Pages-ready project for building and hosting Property Funding emai
 
 ## Structure
 
-- `index.html` - client-facing landing page and future builder hub.
+- `index.html` - client-facing one-page email builder with name input, live preview and copy controls.
 - `options/01-universal-website-design.html` - 01 Universal (Website Design), rebuilt to mirror the current Invest page design.
 - `assets/` - shared images. `website-*` files are the Website Design option's imagery: section photos and diagrams reused from the site, plus photo banners (hero, governance, footer CTA, landscape) cropped from the Invest page screenshot with the headline text baked in.
 
