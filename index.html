@@ -278,7 +278,7 @@
 
         <div class="field">
           <label for="recipient-name">Recipient name</label>
-          <input id="recipient-name" type="text" value="Miles" autocomplete="given-name">
+          <input id="recipient-name" type="text" placeholder="e.g. Miles" autocomplete="given-name">
         </div>
 
         <ol class="steps" aria-label="How to send">
@@ -331,16 +331,16 @@
     }
 
     function cleanName(value) {
-      return value.trim().replace(/\s+/g, ' ') || 'there';
+      return value.trim().replace(/\s+/g, ' ');
     }
 
     function personaliseGreeting(doc, name) {
-      const greeting = `Hi ${name}, thanks for your enquiry.`;
+      const greeting = name ? `Hey ${name}, thanks for your enquiry.` : 'Hey, thanks for your enquiry.';
       const candidates = Array.from(doc.querySelectorAll('span, div, td'));
-      const node = candidates.find((element) => element.textContent.includes('Hi Miles, thanks for your enquiry.'));
+      const node = candidates.find((element) => element.textContent.includes('Hey, thanks for your enquiry.'));
 
       if (node) {
-        node.innerHTML = node.innerHTML.replace('Hi Miles, thanks for your enquiry.', greeting);
+        node.innerHTML = node.innerHTML.replace('Hey, thanks for your enquiry.', greeting);
       }
     }
 
@@ -371,7 +371,8 @@
       if (!rawTemplate) return;
       currentEmailHtml = absolutiseTemplate(rawTemplate, TEMPLATE_PATH);
       previewFrame.srcdoc = currentEmailHtml;
-      status.textContent = `Preview updated for ${cleanName(nameInput.value)}.`;
+      const name = cleanName(nameInput.value);
+      status.textContent = name ? `Preview updated for ${name}.` : 'Preview updated.';
     }
 
     async function loadTemplate() {
