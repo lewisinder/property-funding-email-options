@@ -184,6 +184,12 @@
       color: var(--pf-white);
     }
 
+    .button.outlook {
+      background: #ffffff;
+      border-color: #ffffff;
+      color: var(--pf-ink);
+    }
+
     .status {
       background: rgba(255, 255, 255, 0.08);
       border-left: 4px solid var(--pf-copper);
@@ -273,7 +279,7 @@
         <div>
           <div class="label">01 Universal</div>
           <h1>Email builder</h1>
-          <p class="copy">Enter the recipient name, check the preview, then copy the rendered email body into Gmail, Outlook or your email compose window.</p>
+          <p class="copy">Enter the recipient name, check the preview, then copy the rendered email body into your email compose window.</p>
         </div>
 
         <div class="field">
@@ -283,12 +289,13 @@
 
         <ol class="steps" aria-label="How to send">
           <li class="step"><strong>1. Enter the name.</strong> The greeting in the preview updates automatically.</li>
-          <li class="step"><strong>2. Press Copy email body.</strong> This copies the styled HTML email, including hosted image URLs.</li>
-          <li class="step"><strong>3. Paste into a new email.</strong> Put your cursor in the email body, paste, then send as normal.</li>
+          <li class="step"><strong>2. Press Copy email body.</strong> Use this for Gmail, Apple Mail and Outlook web.</li>
+          <li class="step"><strong>3. If Outlook loses formatting.</strong> Press Copy for Outlook instead, then paste into a new email body.</li>
         </ol>
 
         <div class="actions">
-          <button class="button" type="button" id="copy-body">Copy email body for Gmail/Outlook</button>
+          <button class="button" type="button" id="copy-body">Copy email body</button>
+          <button class="button outlook" type="button" id="copy-outlook">Copy for Outlook</button>
           <button class="button secondary" type="button" id="copy-source">Copy source HTML</button>
           <a class="button secondary" href="options/01-universal-website-design.html" target="_blank" rel="noopener">Open standalone design</a>
         </div>
@@ -315,6 +322,7 @@
     const previewFrame = document.getElementById('preview-frame');
     const status = document.getElementById('status');
     const copyBodyButton = document.getElementById('copy-body');
+    const copyOutlookButton = document.getElementById('copy-outlook');
     const copySourceButton = document.getElementById('copy-source');
 
     let rawTemplate = '';
@@ -328,6 +336,17 @@
     function htmlToBodyFragment(html) {
       const doc = new DOMParser().parseFromString(html, 'text/html');
       return doc.body ? doc.body.innerHTML : html;
+    }
+
+    function copyStyleValue(styleText, property) {
+      const match = styleText.match(new RegExp(`${property}\\s*:\\s*([^;]+)`, 'i'));
+      return match ? match[1].trim() : '';
+    }
+
+    function appendStyle(element, declarations) {
+      const current = element.getAttribute('style') || '';
+      const ending = current.trim().endsWith(';') || !current.trim() ? '' : ';';
+      element.setAttribute('style', `${current}${ending}${declarations}`);
     }
 
     function cleanName(value) {
@@ -367,6 +386,61 @@
       return '<!doctype html>\n' + doc.documentElement.outerHTML;
     }
 
+    function reinforceOutlookHtml(html) {
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+
+      doc.querySelectorAll('[style]').forEach((node) => {
+        const style = node.getAttribute('style') || '';
+        const background = copyStyleValue(style, 'background') || copyStyleValue(style, 'background-color');
+        const color = copyStyleValue(style, 'color');
+
+        if (background && /^#(?:[0-9a-f]{3}){1,2}$/i.test(background)) {
+          node.setAttribute('bgcolor', background);
+        }
+
+        if (color && /^#(?:[0-9a-f]{3}){1,2}$/i.test(color)) {
+          node.setAttribute('color', color);
+        }
+
+        if (/Tajawal-Bold/i.test(style) && !/font-weight/i.test(style)) {
+          appendStyle(node, ' font-weight:bold;');
+        }
+
+        if (/border-radius/i.test(style)) {
+          node.setAttribute('style', node.getAttribute('style').replace(/border-radius\s*:\s*[^;]+;?/gi, ''));
+        }
+      });
+
+      doc.querySelectorAll('a').forEach((link) => {
+        const style = link.getAttribute('style') || '';
+        const hasImage = Boolean(link.querySelector('img'));
+        const label = link.textContent.trim();
+        const isButton = !hasImage && /display\s*:\s*inline-block/i.test(style) && /background\s*:\s*#/i.test(style);
+
+        if (!isButton || !label) return;
+
+        const href = link.getAttribute('href') || '#';
+        const background = copyStyleValue(style, 'background') || '#b78d77';
+        const color = copyStyleValue(style, 'color') || '#ffffff';
+        const align = link.closest('[align]')?.getAttribute('align') || '';
+        const table = doc.createElement('table');
+        table.setAttribute('role', 'presentation');
+        table.setAttribute('cellspacing', '0');
+        table.setAttribute('cellpadding', '0');
+        table.setAttribute('border', '0');
+        if (align) table.setAttribute('align', align);
+        table.setAttribute('style', 'border-collapse:collapse; margin:0;');
+        table.innerHTML = `<tr><td bgcolor="${background}" style="background:${background}; padding:0; text-align:center;"><a href="${href}" style="display:inline-block; color:${color}; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:16px; font-weight:bold; letter-spacing:1px; padding:12px 18px; text-decoration:none; text-transform:uppercase;">${label}</a></td></tr>`;
+        link.replaceWith(table);
+      });
+
+      doc.querySelectorAll('img').forEach((image) => {
+        appendStyle(image, ' outline:none; text-decoration:none; -ms-interpolation-mode:bicubic;');
+      });
+
+      return doc.body ? doc.body.innerHTML : html;
+    }
+
     function renderPreview() {
       if (!rawTemplate) return;
       currentEmailHtml = absolutiseTemplate(rawTemplate, TEMPLATE_PATH);
@@ -377,13 +451,35 @@
 
     async function loadTemplate() {
       try {
-        const response = await fetch(TEMPLATE_PATH);
+        const response = await fetch(`${TEMPLATE_PATH}?v=${Date.now()}`, { cache: 'no-store' });
         if (!response.ok) throw new Error(`Template returned ${response.status}`);
         rawTemplate = await response.text();
         renderPreview();
       } catch (error) {
         status.textContent = 'Could not load the email template. Refresh the page and try again.';
       }
+    }
+
+    function copyRenderedHtml(html) {
+      const container = document.createElement('div');
+      container.setAttribute('contenteditable', 'true');
+      container.style.position = 'fixed';
+      container.style.left = '-10000px';
+      container.style.top = '0';
+      container.style.width = '760px';
+      container.style.background = '#ffffff';
+      container.innerHTML = html;
+      document.body.appendChild(container);
+
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(container);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      const copied = document.execCommand('copy');
+      selection.removeAllRanges();
+      container.remove();
+      return copied;
     }
 
     async function copyEmailBody() {
@@ -418,6 +514,34 @@
       }
     }
 
+    async function copyOutlookBody() {
+      try {
+        if (!currentEmailHtml) renderPreview();
+        const emailBodyHtml = reinforceOutlookHtml(htmlToBodyFragment(currentEmailHtml));
+        const plain = htmlToPlainText(emailBodyHtml);
+
+        if (copyRenderedHtml(emailBodyHtml)) {
+          status.textContent = 'Copied Outlook-safe email body. Paste into a new Outlook email body.';
+          return;
+        }
+
+        if (navigator.clipboard && window.ClipboardItem) {
+          await navigator.clipboard.write([
+            new ClipboardItem({
+              'text/html': new Blob([emailBodyHtml], { type: 'text/html' }),
+              'text/plain': new Blob([plain], { type: 'text/plain' })
+            })
+          ]);
+          status.textContent = 'Copied Outlook-safe email body. Paste into a new Outlook email body.';
+          return;
+        }
+
+        throw new Error('No rich clipboard support');
+      } catch (error) {
+        status.textContent = 'Could not copy the Outlook version. Try the normal Copy email body button.';
+      }
+    }
+
     async function copySourceHtml() {
       try {
         if (!currentEmailHtml) renderPreview();
@@ -442,6 +566,7 @@
 
     nameInput.addEventListener('input', renderPreview);
     copyBodyButton.addEventListener('click', copyEmailBody);
+    copyOutlookButton.addEventListener('click', copyOutlookBody);
     copySourceButton.addEventListener('click', copySourceHtml);
 
     loadTemplate();
