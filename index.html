@@ -349,6 +349,19 @@
       element.setAttribute('style', `${current}${ending}${declarations}`);
     }
 
+    function uppercaseTextNodes(element) {
+      Array.from(element.childNodes).forEach((node) => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          node.textContent = node.textContent.toUpperCase();
+          return;
+        }
+
+        if (node.nodeType === Node.ELEMENT_NODE) {
+          uppercaseTextNodes(node);
+        }
+      });
+    }
+
     function cleanName(value) {
       return value.trim().replace(/\s+/g, ' ');
     }
@@ -406,6 +419,10 @@
           appendStyle(node, ' font-weight:bold;');
         }
 
+        if (/text-transform\s*:\s*uppercase/i.test(style)) {
+          uppercaseTextNodes(node);
+        }
+
         if (/border-radius/i.test(style)) {
           node.setAttribute('style', node.getAttribute('style').replace(/border-radius\s*:\s*[^;]+;?/gi, ''));
         }
@@ -430,7 +447,7 @@
         table.setAttribute('border', '0');
         if (align) table.setAttribute('align', align);
         table.setAttribute('style', 'border-collapse:collapse; margin:0;');
-        table.innerHTML = `<tr><td bgcolor="${background}" style="background:${background}; padding:0; text-align:center;"><a href="${href}" style="display:inline-block; color:${color}; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:16px; font-weight:bold; letter-spacing:1px; padding:12px 18px; text-decoration:none; text-transform:uppercase;">${label}</a></td></tr>`;
+        table.innerHTML = `<tr><td bgcolor="${background}" style="background:${background}; padding:0; text-align:center;"><a href="${href}" style="display:inline-block; color:${color}; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:16px; font-weight:bold; letter-spacing:1px; padding:12px 18px; text-decoration:none; text-transform:uppercase;">${label.toUpperCase()}</a></td></tr>`;
         link.replaceWith(table);
       });
 
