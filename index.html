@@ -367,12 +367,11 @@
     }
 
     function personaliseGreeting(doc, name) {
-      const greeting = name ? `Hey ${name}, thanks for your enquiry.` : 'Hey, thanks for your enquiry.';
-      const candidates = Array.from(doc.querySelectorAll('span, div, td'));
-      const node = candidates.find((element) => element.textContent.includes('Hey, thanks for your enquiry.'));
+      const greeting = `Dear ${name || 'Lewis'},`;
+      const node = doc.querySelector('[data-recipient-greeting]');
 
       if (node) {
-        node.innerHTML = node.innerHTML.replace('Hey, thanks for your enquiry.', greeting);
+        node.textContent = greeting;
       }
     }
 
