@@ -158,6 +158,10 @@
       gap: 10px;
     }
 
+    .secondary-actions {
+      margin-top: 4px;
+    }
+
     .button {
       align-items: center;
       appearance: none;
@@ -279,7 +283,7 @@
         <div>
           <div class="label">01 Universal</div>
           <h1>Email builder</h1>
-          <p class="copy">Enter the recipient name, check the preview, then copy the rendered email body into your email compose window.</p>
+          <p class="copy">Enter the recipient name, check the preview, then copy the Outlook-ready version into your email compose window.</p>
         </div>
 
         <div class="field">
@@ -289,15 +293,18 @@
 
         <ol class="steps" aria-label="How to send">
           <li class="step"><strong>1. Enter the name.</strong> The greeting in the preview updates automatically.</li>
-          <li class="step"><strong>2. Press Copy email body.</strong> Use this for Gmail, Apple Mail and Outlook web.</li>
-          <li class="step"><strong>3. If Outlook loses formatting.</strong> Press Copy for Outlook instead, then paste into a new email body.</li>
+          <li class="step"><strong>2. Press Copy for Outlook.</strong> Paste it into a new Outlook email body.</li>
+          <li class="step"><strong>3. Send a quick test.</strong> Check images and spacing before sending to the investor.</li>
         </ol>
 
         <div class="actions">
-          <button class="button" type="button" id="copy-body">Copy email body</button>
           <button class="button outlook" type="button" id="copy-outlook">Copy for Outlook</button>
+        </div>
+
+        <div class="actions secondary-actions">
           <button class="button secondary" type="button" id="copy-source">Copy source HTML</button>
           <a class="button secondary" href="options/01-universal-website-design.html" target="_blank" rel="noopener">Open standalone design</a>
+          <button class="button secondary" type="button" id="copy-body">Copy email body</button>
         </div>
 
         <div class="status" id="status">Ready. The preview is using the name above.</div>
